@@ -1,2 +1,2 @@
 from .title_bar import TitleBar
-from .selectors import JobListWidget
+from .selectors import JobSelector, ResourceSelector

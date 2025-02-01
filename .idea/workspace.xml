@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7a00d2b1-87b5-468b-bbde-26f51ca0c9a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/overlay/widgets/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/overlay/widgets/selectors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/overlay/widgets/title_bar.py" afterDir="false" />
+    <list default="true" id="7a00d2b1-87b5-468b-bbde-26f51ca0c9a0" name="Changes" comment="feat: job selection">
+      <change afterPath="$PROJECT_DIR$/overlay/widgets/buttons.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/jobs_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/job_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/overlay/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/overlay/view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/overlay/widgets/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/overlay/widgets/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/overlay/widgets/selectors.py" beforeDir="false" afterPath="$PROJECT_DIR$/overlay/widgets/selectors.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +99,20 @@
       <option name="presentableId" value="Default" />
       <updated>1738414172855</updated>
     </task>
+    <task id="LOCAL-00001" summary="feat: job selection">
+      <option name="closed" value="true" />
+      <created>1738418024937</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1738418024937</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: job selection" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: job selection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

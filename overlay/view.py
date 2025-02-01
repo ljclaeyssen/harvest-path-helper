@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel
 from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QPainter, QColor, QPen
-from overlay.widgets import TitleBar, JobListWidget
+from overlay.widgets import TitleBar, JobSelector, ResourceSelector
 
 class CustomOverlay(QWidget):
     def __init__(self):
@@ -22,9 +22,12 @@ class CustomOverlay(QWidget):
         # Barre de titre personnalisée
         self.title_bar = TitleBar(self)
 
-        # Sélecteur de métier (maintenant un JobListWidget)
-        self.job_list_widget = JobListWidget(self.title_bar)
-        self.title_bar.add_widget(self.job_list_widget)
+        # Sélecteur de métier
+        self.job_selector = JobSelector(self)
+
+        # Sélecteur de ressource (initiallement caché)
+        self.resource_selector = ResourceSelector(self)
+        self.resource_selector.hide()
 
         # Flèche (exemple simple, à améliorer)
         self.arrow_label = QLabel("➡️", self)
@@ -37,7 +40,10 @@ class CustomOverlay(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(0)
         layout.addWidget(self.title_bar)
+        layout.addWidget(self.job_selector)
+        layout.addWidget(self.resource_selector)
         layout.addWidget(self.arrow_label)
+        layout.addStretch() # Pour pousser le contenu vers le haut
         self.setLayout(layout)
 
         # Variables pour la bordure
@@ -49,7 +55,13 @@ class CustomOverlay(QWidget):
     def on_job_selected(self, selected_job):
         """Méthode appelée lorsqu'un métier est sélectionné."""
         print(f"Métier sélectionné : {selected_job.name}")
-        # Mettez ici le code pour mettre à jour l'affichage en fonction du métier sélectionné
+        self.resource_selector.update_resources(selected_job)
+        self.resource_selector.show()
+
+    def on_resource_selected(self, selected_resource):
+        """Méthode appelée lorsqu'une ressource est sélectionnée."""
+        print(f"Ressource sélectionnée : {selected_resource.name}")
+        # Mettez ici le code pour mettre à jour l'affichage en fonction de la ressource sélectionnée
 
     def mouseMoveEvent(self, event):
         # Détection de la souris au-dessus de la fenêtre
@@ -75,8 +87,8 @@ class CustomOverlay(QWidget):
         self.updateArrowPosition()
 
     def updateArrowPosition(self):
-        # Centrer la flèche dans la zone en dessous de la barre de titre
-        self.arrow_label.setGeometry(0, self.title_bar.height, self.width(), self.height() - self.title_bar.height)
+        # Centrer la flèche dans la zone en dessous de la barre de titre et des selecteurs
+        self.arrow_label.setGeometry(0, self.title_bar.height, self.width(), 50)
 
     def updateBorder(self):
         if self.underMouse() != self.isMouseOver:
